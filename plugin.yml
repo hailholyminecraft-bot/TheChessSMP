@@ -1,0 +1,18 @@
+name: ChessSMP
+version: 2.1.0
+main: com.chesssmp.plugin.ChessSMP
+api-version: '26.2'
+author: ChessSMP
+description: Chess War events, six chess roles, abilities, trader and PvP progression.
+commands:
+  chess:
+    description: Main ChessSMP command
+    usage: /chess <choose|ability|trader|event|info|top>
+    aliases: [cs]
+  chessinfo:
+    description: View your chess role, abilities, triggers and stats
+    usage: /chessinfo
+permissions:
+  chesssmp.admin:
+    description: Manage Chess War events
+    default: op

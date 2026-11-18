@@ -1,0 +1,28 @@
+name: Build ChessSMP
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+      - name: Build plugin
+        run: mvn --batch-mode clean package
+      - name: Upload plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: ChessSMP-2.1.0
+          path: target/ChessSMP-2.1.0.jar
